@@ -25,7 +25,7 @@ define('DATABASE', [
     'Port'   => '3306',
     'Host'   => 'localhost',
     'Driver' => 'PDO',
-    'Name'   => 'simple-mvc',
+    'Name'   => 'mvc-api-aviel',
     'User'   => 'root',
     'Pass'   => '',
     'Prefix' => 'sm_'
@@ -33,3 +33,6 @@ define('DATABASE', [
 
 // DB_PREFIX
 define('DB_PREFIX', 'sm_');
+
+// Config email settings
+

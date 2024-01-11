@@ -7,6 +7,8 @@
  */
 namespace MVC;
 
+use Exception;
+
 /**
  * Class Controller, a port of MVC
  *
@@ -58,9 +60,22 @@ class Controller {
             throw new Exception(sprintf('{ %s } this model file not found', $file));
         }
     }
+    
+    /**
+     * return data form Request | if empty : return ''
+     *
+     * @param  String $key
+     */
+    public function request ($key) {
+        if(isset($this->request->request[$key])) {
+            return htmlentities($this->request->request[$key]);
+        } else {
+            return '';
+        }
+    }
 
 	// send response faster
-    public function send($status = 200, $msg) {
+    public function send($msg, $status = 200) {
         $this->response->setHeader(sprintf('HTTP/1.1 ' . $status . ' %s' , $this->response->getStatusCodeText($status)));
         $this->response->setContent($msg);
     }
